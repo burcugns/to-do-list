@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO LIST APP</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <main class="container-main">
+      <section class="add-todo-section">
+        <form class="add-todo-form" id="todo-form">
+          <h2 id="form-heading" class="form-title">
+            Add a New Task <i class="fa-solid fa-feather-pointed"></i>
+          </h2>
+
+          <div class="input-div">
+            <input
+              class="form-input"
+              id="todo-input"
+              name="task"
+              placeholder="Enter your new todo"
+              type="text"
+              required
+            />
+          </div>
+          <button type="submit" class="submit-button">Add</button>
+        </form>
+      </section>
+
+      <section class="todo-list-section">
+        <h2>NOTES</h2>
+        <div class="todo-list-grid"></div>
+      </section>
+    </main>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
