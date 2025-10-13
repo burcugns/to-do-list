@@ -2,16 +2,28 @@ var submitButton=document.getElementById("submit-button");
 var notesGrid=document.getElementById("grid-main-div");
 
 submitButton.addEventListener("click", function(){
-   var noteDiv = createNote()
-
-    notesGrid.appendChild(noteDiv);
+   createNote()
+ 
 });
 
+var noteColors = [
+        ["note-yellow","pin-pink"],
+        ["note-blue","pin-green"],
+        ["note-pink","pin-blue"],
+        ["note-purple","pin-purple"],
+        ["note-green","pin-yellow"]
+    ];
+
+
+
 function createNote(){
+
+    var randomColors=Math.floor(Math.random() * noteColors.length);
  
     var taskInput=document.getElementById("todo-input")
     if(taskInput.value==""){
         alert("Please enter your task")
+        return;
     }
 
    // new elements
@@ -29,7 +41,7 @@ function createNote(){
 
 
 
-
+    notesGrid.appendChild(noteDiv);
     noteDiv.appendChild(noteP);
     noteDiv.appendChild(notePinDiv);
     noteDiv.appendChild(editInput);
@@ -41,12 +53,12 @@ function createNote(){
     actionDiv.appendChild(deleteButton);
     deleteButton.appendChild(deleteIcon);
 
-    
+
 //  new css classes
     noteDiv.classList.add("note");
-    noteDiv.classList.add("note-purple");
+    noteDiv.classList.add(noteColors[randomColors][0]);
     notePinDiv.classList.add("note-pin");
-    notePinDiv.classList.add("pin-purple");
+    notePinDiv.classList.add(noteColors[randomColors][1]);
     editInput.type = "text";
     editInput.className = "edit-input";
     editInput.name="edit-input-name";
@@ -63,8 +75,18 @@ function createNote(){
     editInput.style.display= 'none'
 
 
+    deleteButton.addEventListener("click", function() {
+    deleteNote(this);
+    });
+
  
     noteP.textContent=taskInput.value
     taskInput.value=""
     return noteDiv;
+}
+
+function deleteNote(deleteBbutton){
+    const note = deleteBbutton.parentElement.parentElement
+    notesGrid.removeChild(note);
+
 }
