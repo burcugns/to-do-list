@@ -15,11 +15,10 @@
   <body>
     <main class="container-main">
       <section class="add-todo-section">
-        <form class="add-todo-form" id="todo-form">
+        <div class="add-todo-form" id="todo-form">
           <h2 id="form-heading" class="form-title">
             Add a New Task <i class="fa-solid fa-feather-pointed"></i>
           </h2>
-
           <div class="input-div">
             <input
               class="form-input"
@@ -30,13 +29,15 @@
               required
             />
           </div>
-          <button type="submit" class="submit-button">Add</button>
-        </form>
+          <button type="submit" class="submit-button" id="submit-button">
+            Add
+          </button>
+        </div>
       </section>
 
       <section class="todo-list-section">
         <h2>NOTES</h2>
-        <div class="todo-list-grid"></div>
+        <div class="todo-list-grid" id="grid-main-div"></div>
       </section>
     </main>
 
