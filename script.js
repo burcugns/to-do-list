@@ -19,6 +19,7 @@ var noteColors = [
 function createNote(){
 
     var randomColors=Math.floor(Math.random() * noteColors.length);
+
  
     var taskInput=document.getElementById("todo-input")
     if(taskInput.value==""){
@@ -75,8 +76,13 @@ function createNote(){
     editInput.style.display= 'none'
 
 
+
     deleteButton.addEventListener("click", function() {
-    deleteNote(this);
+    deleteNote(deleteButton);
+    });
+
+    doneButton.addEventListener("click", function() {
+    readNote(doneButton);
     });
 
  
@@ -85,8 +91,21 @@ function createNote(){
     return noteDiv;
 }
 
-function deleteNote(deleteBbutton){
-    const note = deleteBbutton.parentElement.parentElement
+function deleteNote(deleteButton){
+    const note = deleteButton.parentElement.parentElement;
     notesGrid.removeChild(note);
 
+}
+function readNote(doneButton){
+debugger
+    if(doneButton.classList.contains("done")){
+        doneButton.parentElement.parentElement.children[0].classList.add("line-through");
+        doneButton.children[0].classList.replace("fa-check","fa-xmark")
+        doneButton.classList.replace("done","cancel")
+
+    }else{
+        doneButton.parentElement.parentElement.children[0].classList.remove("line-through");
+        doneButton.children[0].classList.replace("fa-xmark","fa-check")
+        doneButton.classList.replace("cancel", "done")
+    }
 }
