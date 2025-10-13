@@ -51,7 +51,7 @@ main{
 .todo-list-section {
     width: 100%;
     padding: 2rem;
-    background: url("/img/bg-image.jpg");
+    background: url("../img/bg-image.jpg");
     backdrop-filter: blur(20px);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.2);
