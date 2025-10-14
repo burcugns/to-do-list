@@ -17,7 +17,6 @@ var noteColors = [
 
 
 function createNote(){
-
     var randomColors=Math.floor(Math.random() * noteColors.length);
 
  
@@ -26,6 +25,14 @@ function createNote(){
         alert("Please enter your task")
         return;
     }
+
+    if(!isNewNoteUnique(taskInput.value)){
+        alert("Please enter unique task")
+        return; 
+    }
+
+
+
 
    // new elements
     var noteDiv=document.createElement("div");
@@ -74,7 +81,7 @@ function createNote(){
     deleteIcon.classList.add("fa-solid");
     deleteIcon.classList.add("fa-trash-can");
     editInput.style.display= 'none'
-
+    noteP.setAttribute("name", "note-p");
 
 
     deleteButton.addEventListener("click", function() {
@@ -86,7 +93,7 @@ function createNote(){
     });
 
     editButton.addEventListener("click", function() {
-    edit_task(editButton);
+    editTask(editButton);
     });
 
     noteP.textContent=taskInput.value
@@ -112,7 +119,12 @@ function readNote(doneButton){
     }
 }
 
-function edit_task(editButton){
+function editTask(editButton){
+
+    if(!isNewNoteUnique(editButton.parentElement.parentElement.children[2].value)){
+        alert("Please enter unique task")
+        return; 
+    }
 
      if(editButton.parentElement.parentElement.children[0].style.display == 'none' ){
         editButton.parentElement.parentElement.children[2].style.display = 'none'
@@ -123,4 +135,14 @@ function edit_task(editButton){
         editButton.parentElement.parentElement.children[2].style.display = 'block'
         editButton.parentElement.parentElement.children[0].style.display = 'none'
     }
-  }
+}
+
+function isNewNoteUnique(newNote){
+var existingNotes = document.getElementsByName("note-p")
+ for (let note of existingNotes){
+    if(newNote.trim() == note.innerText.trim()){
+       return false;
+    }
+ }
+    return true;
+}
