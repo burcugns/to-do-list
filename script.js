@@ -85,19 +85,21 @@ function createNote(){
     readNote(doneButton);
     });
 
- 
+    editButton.addEventListener("click", function() {
+    edit_task(editButton);
+    });
+
     noteP.textContent=taskInput.value
     taskInput.value=""
     return noteDiv;
 }
 
 function deleteNote(deleteButton){
-    const note = deleteButton.parentElement.parentElement;
+    var note = deleteButton.parentElement.parentElement;
     notesGrid.removeChild(note);
 
 }
 function readNote(doneButton){
-debugger
     if(doneButton.classList.contains("done")){
         doneButton.parentElement.parentElement.children[0].classList.add("line-through");
         doneButton.children[0].classList.replace("fa-check","fa-xmark")
@@ -109,3 +111,16 @@ debugger
         doneButton.classList.replace("cancel", "done")
     }
 }
+
+function edit_task(editButton){
+
+     if(editButton.parentElement.parentElement.children[0].style.display == 'none' ){
+        editButton.parentElement.parentElement.children[2].style.display = 'none'
+        editButton.parentElement.parentElement.children[0].style.display = 'block'
+        editButton.parentElement.parentElement.children[0].innerHTML =  editButton.parentElement.parentElement.children[2].value
+
+    }else{
+        editButton.parentElement.parentElement.children[2].style.display = 'block'
+        editButton.parentElement.parentElement.children[0].style.display = 'none'
+    }
+  }
