@@ -128,12 +128,27 @@ function editTask(editButton){
     }
 
     if(editButton.parentElement.parentElement.children[0].style.display == 'none'){
+
+        if(editButton.parentElement.parentElement.children[2].value == "")
+            {
+                alert("Please enter your task")
+                return;
+            }
+
+
         editButton.parentElement.parentElement.children[2].style.display = 'none';
         editButton.parentElement.parentElement.children[0].style.display = 'block';
+        editButton.parentElement.children[0].style.display = 'block'; // done button
         editButton.parentElement.parentElement.children[0].innerHTML = editButton.parentElement.parentElement.children[2].value;
+        editButton.parentElement.parentElement.children[2].value = "";
+        editButton.children[0].classList.replace("fa-check","fa-pen-to-square")
     }else{
+        editButton.parentElement.children[0].style.display = 'none'; // done button
         editButton.parentElement.parentElement.children[2].style.display = 'block';
         editButton.parentElement.parentElement.children[0].style.display = 'none';
+        editButton.children[0].classList.replace("fa-pen-to-square","fa-check")
+
+
     }
 }
 
