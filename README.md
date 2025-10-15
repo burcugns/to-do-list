@@ -55,8 +55,10 @@ to-do-list/
 
 <img src="./img/todo-list-img3.png" alt="Example image" width="500" height="290" />
 <br>
-<img src="./img/todo-list-img2.png" alt="Example image" width="200" height="250" />
-<img src="./img/todo-list-img.png" alt="Example image" width="200" height="250"/>
+<p float="left">
+  <img src="./img/todo-list-img2.png" width="200" height="250"/>
+  <img src="./img/todo-list-img.png" width="200" height="250" />
+</p>
 
 ## Deployment
 
