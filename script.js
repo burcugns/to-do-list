@@ -120,24 +120,23 @@ function readNote(doneButton){
 }
 
 function editTask(editButton){
-
-
     if(editButton.parentElement.parentElement.children[0].style.display == 'none'){
         if(!isNewNoteUnique(editButton.parentElement.parentElement.children[2].value)){
-            alert("Please enter unique task")
+            alert("Please enter unique task");
             return; 
-    }}
+        }
+    }
 
-    if(editButton.parentElement.parentElement.children[0].style.display == 'none' ){
-        editButton.parentElement.parentElement.children[2].style.display = 'none'
-        editButton.parentElement.parentElement.children[0].style.display = 'block'
-        editButton.parentElement.parentElement.children[0].innerHTML =  editButton.parentElement.parentElement.children[2].value
-
+    if(editButton.parentElement.parentElement.children[0].style.display == 'none'){
+        editButton.parentElement.parentElement.children[2].style.display = 'none';
+        editButton.parentElement.parentElement.children[0].style.display = 'block';
+        editButton.parentElement.parentElement.children[0].innerHTML = editButton.parentElement.parentElement.children[2].value;
     }else{
-        editButton.parentElement.parentElement.children[2].style.display = 'block'
-        editButton.parentElement.parentElement.children[0].style.display = 'none'
+        editButton.parentElement.parentElement.children[2].style.display = 'block';
+        editButton.parentElement.parentElement.children[0].style.display = 'none';
     }
 }
+
 
 function isNewNoteUnique(newNote){
 var existingNotes = document.getElementsByName("note-p")
